@@ -162,6 +162,17 @@ angular.module('trrntsApp.controllers', [])
 }])
 .controller('BillboardViewController', ['$scope', 'BillboardDataFactory',  function ($scope, BillboardDataFactory) {
   $scope.dummyData = BillboardDataFactory.getData();
+  var colorArray = ['#E9405A', '#3EC3D5'];
+  $scope.colorFunction = function() {
+    return function(d, i) {
+      return colorArray[i];
+    };
+  };
+  $scope.toolTipFunction= function(){
+    return function(key, x, y, e, graph){
+      return '<h3>' + key + ' - ' + x + '</h3>' + '<p>' +  y + '</p>';
+    };
+  };
 
 }])
 .controller('ModalViewController', ['$scope', 'SharedService', '$location', '$state', function($scope, SharedService, $location, $state) {
