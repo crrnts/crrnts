@@ -160,6 +160,10 @@ angular.module('trrntsApp.controllers', [])
   $scope.getCities($scope.numberOfCities);
 
 }])
+.controller('BillboardController', ['$scope', 'BillboardDataFactory'], function ($scope, BillboardDataFactory) {
+  $scope.dummyData = BillboardDataFactory.getData();
+
+})
 .controller('ModalViewController', ['$scope', 'SharedService', '$location', '$state', function($scope, SharedService, $location, $state) {
   $scope.modalShown = true;
   console.log('Here');
