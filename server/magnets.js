@@ -25,17 +25,44 @@ util.infoHashesToMagnets = function (infoHashes, callback) {
     multi.zrevrange(['magnet:' + infoHash + ':peers', 0, 50, 'WITHSCORES']);
   });
   multi.exec(function (err, results) {
+    if (err){
+      callback(err);
+      return;
+    }
     var magnets = [];
 
 
     // Every second result is the result of a ZREVRANGE (peer data for charts).
-    // _.each(_.range(0, results.length, 2), function (index) {
-    //   results[index].peerCount = results[index].peers;
-    //   results[index].peers = results[index+1];
-    //   magnets.push(results[index]);
-    // });
+    _.each(_.range(0, results.length, 2), function (index) {
+      results[index].peerCount = results[index].peers;
+      results[index].peers = results[index+1];
+      magnets.push(results[index]);
+    });
 
     callback(null, magnets);
+  });
+};
+
+magnets.getPeers = function(infoHashes, callback){
+  var peers = 0;
+  if (!Array.isArray(infoHashes)){
+    infoHashes = [infoHashes];
+  }
+  var multi = redis.multi();
+  _.each(infoHashes, function(infoHash){
+    multi.hget('magnet:' + infoHash, ':peers');
+  })
+  multi.exec(function (err, results){
+    if (err){
+      callback(err);
+      return;
+    }
+    for (var i = 0; i < results.length; i++){
+      if (results[i] > 0){
+        peers += results[i];
+      }
+    }
+    callback(null, peers);
   });
 };
 
