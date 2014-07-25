@@ -9,15 +9,15 @@ var router = express.Router();
 // Creates a new movie. Accepts JSON-object having one attribute `movieName.\
 // Usage:
 // localhost:9000/api/movies
-router.post('/movies', function(req,res){
-  movies.create(req.body.movieName, req.body.movieObject function(err, movie){
-    if (err) {
-      res.send(400, {error: err.message});
-    } else{
-      res.send(200, movie);
-    }
-  });
-});
+// router.post('/movies', function(req,res){
+//   movies.create(req.body.movieName, req.body.movieObject function(err, movie){
+//     if (err) {
+//       res.send(400, {error: err.message});
+//     } else{
+//       res.send(200, movie);
+//     }
+//   });
+// });
 
 // Creates a new magnet. Accepts JSON-object having one attribute `magnetURI.`
 // Usage:
