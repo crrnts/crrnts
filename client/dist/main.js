@@ -180,6 +180,17 @@ angular.module('trrntsApp.controllers', [])
 }])
 .controller('BillboardViewController', ['$scope', 'BillboardDataFactory',  function ($scope, BillboardDataFactory) {
   $scope.dummyData = BillboardDataFactory.getData();
+  var colorArray = ['#E9405A', '#3EC3D5'];
+  $scope.colorFunction = function() {
+    return function(d, i) {
+      return colorArray[i];
+    };
+  };
+  $scope.toolTipFunction= function(){
+    return function(key, x, y, e, graph){
+      return '<h3>' + key + ' - ' + x + '</h3>' + '<p>' +  y + '</p>';
+    };
+  };
 
 }])
 .controller('ModalViewController', ['$scope', 'SharedService', '$location', '$state', function($scope, SharedService, $location, $state) {
@@ -616,30 +627,30 @@ angular.module('trrntsApp.services', [])
 .factory('BillboardDataFactory', function() {
   var getData = function() {
     return [{
-            "key": "Box Office Revenue",
-            "values": [ ["Dawn Of The Planet Of The Apes" , 36300000] , 
-                        ["The Purge: Anarchy" , 29800000] , 
-                        ["Planes: Fire And Rescue" , 17500000], 
-                        ["Sex Tape", 14600000], 
-                        ["Transformers: Age of Extinction", 9800000], 
-                        ["Tammy", 7400000], 
-                        ["22 Jump Street", 4700000], 
-                        ["How to Train Your Dragon 2", 3900000], 
-                        ["Earth to Echo", 3300000], 
-                        ["Maleficent", 3200000] ]
+            "key": "Box Office Revenue in Millions",
+            "values": [ ["Dawn Of The Planet Of The Apes" , 36.3] , 
+                        ["The Purge: Anarchy" , 29.8] , 
+                        ["Planes: Fire And Rescue" , 17.5], 
+                        ["Sex Tape", 14.6], 
+                        ["Transformers: Age of Extinction", 9.8], 
+                        ["Tammy", 7.4], 
+                        ["22 Jump Street", 4.7], 
+                        ["How to Train Your Dragon 2", 3.9], 
+                        ["Earth to Echo", 3.3], 
+                        ["Maleficent", 3.2] ]
            },
            {
-             "key": "Torrenting Peers",
-             "values": [ ["Dawn Of The Planet Of The Apes" , 36300] , 
-                         ["The Purge: Anarchy" , 2980] , 
-                         ["Planes: Fire And Rescue" , 1100], 
-                         ["Sex Tape", 14600], 
-                         ["Transformers: Age of Extinction", 98000], 
-                         ["Tammy", 7410], 
-                         ["22 Jump Street", 47000], 
-                         ["How to Train Your Dragon 2", 390000], 
-                         ["Earth to Echo", 300], 
-                         ["Maleficent", 32000] ]
+             "key": "Torrenting Peers in Thousands",
+             "values": [ ["Dawn Of The Planet Of The Apes" , 6.9] , 
+                         ["The Purge: Anarchy" , 20.8] , 
+                         ["Planes: Fire And Rescue" , 7.0], 
+                         ["Sex Tape", 32.0], 
+                         ["Transformers: Age of Extinction", 29.8], 
+                         ["Tammy", 7.1], 
+                         ["22 Jump Street", 24.0], 
+                         ["How to Train Your Dragon 2", 39.0], 
+                         ["Earth to Echo", 3.0], 
+                         ["Maleficent", 30.0] ]
            }];
   };         
   return {
