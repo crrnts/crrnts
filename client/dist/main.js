@@ -616,30 +616,30 @@ angular.module('trrntsApp.services', [])
 .factory('BillboardDataFactory', function() {
   var getData = function() {
     return [{
-               "key": "Box Office Revenue",
-               "values": [ [ "Dawn Of The Planet Of The Apes" , 36300000] , 
-                           [ "The Purge: Anarchy" , 29800000] , 
-                           [ "Planes: Fire And Rescue" , 17500000], 
-                           ["Sex Tape", 14600000], 
-                           ["Transformers: Age of Extinction", 9800000], 
-                           ["Tammy", 7400000], 
-                           ["22 Jump Street", 4700000], 
-                           ["How to Train Your Dragon 2", 3900000], 
-                           ["Earth to Echo", 3300000], 
-                           ["Maleficent", 3200000] ]
+            "key": "Box Office Revenue",
+            "values": [ ["Dawn Of The Planet Of The Apes" , 36300000] , 
+                        ["The Purge: Anarchy" , 29800000] , 
+                        ["Planes: Fire And Rescue" , 17500000], 
+                        ["Sex Tape", 14600000], 
+                        ["Transformers: Age of Extinction", 9800000], 
+                        ["Tammy", 7400000], 
+                        ["22 Jump Street", 4700000], 
+                        ["How to Train Your Dragon 2", 3900000], 
+                        ["Earth to Echo", 3300000], 
+                        ["Maleficent", 3200000] ]
            },
            {
-               "key": "Box Office Revenue",
-               "values": [ [ "Dawn Of The Planet Of The Apes" , 36300] , 
-                           [ "The Purge: Anarchy" , 2980] , 
-                           [ "Planes: Fire And Rescue" , 1100], 
-                           ["Sex Tape", 14600], 
-                           ["Transformers: Age of Extinction", 98000], 
-                           ["Tammy", 7410], 
-                           ["22 Jump Street", 47000], 
-                           ["How to Train Your Dragon 2", 390000], 
-                           ["Earth to Echo", 300], 
-                           ["Maleficent", 32000] ]
+             "key": "Torrenting Peers",
+             "values": [ ["Dawn Of The Planet Of The Apes" , 36300] , 
+                         ["The Purge: Anarchy" , 2980] , 
+                         ["Planes: Fire And Rescue" , 1100], 
+                         ["Sex Tape", 14600], 
+                         ["Transformers: Age of Extinction", 98000], 
+                         ["Tammy", 7410], 
+                         ["22 Jump Street", 47000], 
+                         ["How to Train Your Dragon 2", 390000], 
+                         ["Earth to Echo", 300], 
+                         ["Maleficent", 32000] ]
            }];
   };         
   return {

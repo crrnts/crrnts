@@ -15,7 +15,7 @@ angular.module('trrntsApp.services', [])
                         ["Maleficent", 3200000] ]
            },
            {
-             "key": "Box Office Revenue",
+             "key": "Torrenting Peers",
              "values": [ ["Dawn Of The Planet Of The Apes" , 36300] , 
                          ["The Purge: Anarchy" , 2980] , 
                          ["Planes: Fire And Rescue" , 1100], 
