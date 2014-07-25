@@ -7,6 +7,7 @@ angular.module('trrntsApp.main', [
   'trrntsApp.services',
   'trrntsApp.directives',
   'trrntsApp.filters',
+  'nvd3ChartDirectives',
   'infinite-scroll'
 ])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -79,5 +80,10 @@ angular.module('trrntsApp.main', [
     url: '/detail/:magnetName',
     templateUrl: 'views/detail.tpl.html',
     controller: 'ModalViewController'
+  })
+  .state('trrntsApp.main.billboard', {
+    url: '/billboard',
+    templateUrl: 'views/billboard.tpl.html',
+    controller: 'BillboardViewController'
   });
 }]);

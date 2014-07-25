@@ -18,6 +18,7 @@ var movies = {};
 //   db.close();
 // });
 
+<<<<<<< HEAD
 
 //this code creates a new movie entry in the movie database
 movies.create = function(movieName, obj, callback){
@@ -95,7 +96,8 @@ movies.update = function(movieName, obj, callback){
 //     } else {
 //       var movie = {};
 //       movie.name = movieName;
-//       movie.nameNoWhiteSpace
+
+//       movie.nameNoWhiteSpace;
 //       if (obj){
 //         if (obj.magnets){
 //           movie.magnets = [];
@@ -125,4 +127,4 @@ movies.update = function(movieName, obj, callback){
 //   });
 // };
 
-// module.exports = exports = movies;
+module.exports = exports = movies;
