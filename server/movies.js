@@ -12,6 +12,45 @@ util.replaceWhitespace = function (string) {
   return string.replace(/\W/g, '%d');
 };
 
+
+
+movie.updatePeerCount = function(){
+  mongoClient.connect(auth.dbAuth.dbUri, function(err,db){
+    if (err){
+      throw err;
+    } else{
+      var collection = db.collection('movies');
+      movies.find({},{movieName:1,magnets:1}, function(err,result){
+        if (err){
+          console.log(err);
+          return;
+        }
+        var i = 0;
+        var updateMovie = function(){
+          if (i === result.length){
+            return;
+          }
+          magnets.getPeers(results[i].magnets, function(err, peers){
+            if (err){
+              console.log(err);
+              return;
+            }
+            movies.update({_id:results[i]._id}, {$set {totalPeerCount: peers}}, function(err, res){
+              if (err){
+                console.log(err)
+                return;
+              }
+              i++;
+              setTimeout(function(){updateMovie();},1000);
+            });
+          });
+        }
+        updateMovie();
+      })
+    }
+  });
+}
+
 //creates a movie key value pair in the redis db
 //if optional obj is included adds those values to the pair
 // movies.create = function(movieName, obj, callback){
