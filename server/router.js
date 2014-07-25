@@ -1,22 +1,23 @@
 var express = require('express'),
     magnets = require('./magnets'),
     locations = require('./locations'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    Fetcher = require('htmlfetcher');
 
 var router = express.Router();
 
 // Creates a new movie. Accepts JSON-object having one attribute `movieName.\
 // Usage:
 // localhost:9000/api/movies
-router.post('/movies', function(req,res){
-  movies.create(req.body.movieName, req.body.movieObject function(err, movie){
-    if (err) {
-      res.send(400, {error: err.message});
-    } else{
-      res.send(200, movie);
-    }
-  });
-});
+// router.post('/movies', function(req,res){
+//   movies.create(req.body.movieName, req.body.movieObject function(err, movie){
+//     if (err) {
+//       res.send(400, {error: err.message});
+//     } else{
+//       res.send(200, movie);
+//     }
+//   });
+// });
 
 // Creates a new magnet. Accepts JSON-object having one attribute `magnetURI.`
 // Usage:
@@ -100,6 +101,16 @@ router.post('/magnets/:infoHash', function (req, res) {
       });
     }
     res.send(201);
+  });
+});
+
+router.get('/magnets/:topTen', function(req, res) {
+  Fetcher.fetch('http://www.rottentomatoes.com/', {
+    max_redirects: 1,
+    retry_times: 5,
+    timeout: 1000
+  }, function (response, html) {
+    res.send(html);
   });
 });
 
