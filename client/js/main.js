@@ -7,6 +7,7 @@ angular.module('trrntsApp.main', [
   'trrntsApp.services',
   'trrntsApp.directives',
   'trrntsApp.filters',
+  'nvd3ChartDirectives',
   'infinite-scroll'
 ])
 .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
