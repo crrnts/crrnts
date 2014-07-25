@@ -5,7 +5,7 @@ var _ = require('lodash'),
 
 var util = {};
 
-// Removes all non-alphanumeric charters from a string and removes multiple
+// Removes all non-alphanumeric characters from a string and removes multiple
 // whitespaces. This is needed for extracting the words as an array from a
 // string.
 util.extractWords = function (string) {
@@ -42,7 +42,6 @@ util.infoHashesToMagnets = function (infoHashes, callback) {
 // create('127.0.0.1', 'magnet:?xt=urn:btih:c066...1337') #=> insert magnet URI
 // into database
 magnets.create = function (ip, magnetURI, callback) {
-  console.log('yo');
   var parsedMagnetURI = {};
   try {
     parsedMagnetURI = parseMagnetURI(magnetURI);
