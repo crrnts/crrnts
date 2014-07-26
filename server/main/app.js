@@ -1,7 +1,7 @@
 var express = require('express'),
     app = express(),
     routers = {
-      '/api': require('../router')
+      // '/api': require('../router')
     };
 
 require('./config.js')(app, express, routers);
