@@ -8,7 +8,7 @@ module.exports = exports = function (app, express, routers) {
   app.use(express.static(__dirname + '/../../client'));
   app.use(middle.logError);
   app.use(middle.handleError);
-  for (var path in routers) {
-    app.use(path, routers[path]);
-  }
+  // for (var path in routers) {
+  //   app.use(path, routers[path]);
+  // }
 };
