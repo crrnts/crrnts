@@ -1,6 +1,7 @@
 {
   "name": "Trrnts",
   "version": "0.0.0",
+  "main":"server.js",
   "description": "Trrnt is the front page for the BitTorrent network, providing insights through interactive analytics and data visualizations that leverage the DHT protocol.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
